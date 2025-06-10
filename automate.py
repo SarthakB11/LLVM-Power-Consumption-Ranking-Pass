@@ -6,7 +6,7 @@ def compile_pass():
     Compile the LLVM pass.
     """
     # Command to compile the LLVM pass
-    command = "clang -I$(llvm-config --includedir) -shared -o PowerRankingPass.so PowerRankingPass.cpp"
+    command = "clang -fPIC -I$(llvm-config --includedir) -shared -o PowerRankingPass.so PowerRankingPass.cpp"
     try:
         # Execute the compilation command
         subprocess.run(command, shell=True, check=True)
