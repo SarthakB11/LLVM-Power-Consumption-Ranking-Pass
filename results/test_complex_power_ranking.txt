@@ -1,4 +1,4 @@
-Power Consumption Ranking (New PM):
+Power Consumption Ranking :
 Function: 1    __pyx_pf_12test_complex_simple_function, Score: 444
 Function: 2    __pyx_pf_12test_complex_2loop_function, Score: 1567
 Function: 3    __pyx_pf_12test_complex_4conditional_function, Score: 742

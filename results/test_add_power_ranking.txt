@@ -1,2 +1,2 @@
-Power Consumption Ranking (New PM):
+Power Consumption Ranking :
 Function: 1    __pyx_pf_8test_add_add_numbers, Score: 206

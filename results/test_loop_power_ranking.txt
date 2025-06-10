@@ -1,2 +1,2 @@
-Power Consumption Ranking (New PM):
+Power Consumption Ranking :
 Function: 1    __pyx_pf_9test_loop_calculate_average, Score: 1401
