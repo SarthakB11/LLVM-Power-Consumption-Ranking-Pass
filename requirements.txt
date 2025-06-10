@@ -1,0 +1,2 @@
+Cython==3.1.2
+llvmlite==0.44.0
