@@ -1,22 +1,28 @@
 import os
 import subprocess
+import sys
+import sysconfig
+
 import llvmlite.binding as llvm
 
 def compile_to_c(file_path):
     # Generate the C code using Cython
     c_file_path = os.path.splitext(file_path)[0] + ".c"
-    subprocess.check_call(["cython", "-3", "--embed", "-I/usr/include/python3.10", "-o", c_file_path, file_path])
+    cython_executable = os.path.join(os.path.dirname(sys.executable), 'cython')
+    python_include_path = sysconfig.get_path('include')
+    subprocess.check_call([cython_executable, "-3", "--embed", f"-I{python_include_path}", "-o", c_file_path, file_path])
     return c_file_path
 
 def compile_to_llvm(c_file_path):
     # Compile the C code to LLVM IR using Clang
     llvm_file_path = os.path.splitext(c_file_path)[0] + ".ll"
-    subprocess.check_call(["clang", "-S", "-emit-llvm", "-I/usr/include/python3.10", c_file_path, "-o", llvm_file_path])
+    python_include_path = sysconfig.get_path('include')
+    subprocess.check_call(["clang", "-S", "-emit-llvm", f"-I{python_include_path}", c_file_path, "-o", llvm_file_path])
     return llvm_file_path
 
 def run_power_ranking(llvm_file_path, pm):
     # Run the pass and capture the output
-    with subprocess.Popen(["opt", "-load", "./PowerRankingPass.so", "-power-ranking","-enable-new-pm=0", llvm_file_path], stderr=subprocess.PIPE) as proc:
+    with subprocess.Popen(["opt", "-load-pass-plugin=./PowerRankingPass.so", "-passes=power-ranking", llvm_file_path, "-o", "/dev/null"], stderr=subprocess.PIPE) as proc:
         output = proc.stderr.read()
 
     return output.decode('utf-8')
