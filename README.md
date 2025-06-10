@@ -1,6 +1,9 @@
-# Power Consumption Ranking Pass
+# LLVM Power Consumption Ranking Pass
 
 This project involves designing an LLVM pass to partition a Python application into regions based on power consumption. The regions are the functions of the program. The ID of the desired function is also printed, represented by numbers.
+
+## Project Video
+[power-consumption-ranking-finder-video.webm](https://github.com/user-attachments/assets/d1f1b4cf-c203-46ff-960d-36248110eebb)
 
 ## Prerequisites
 
@@ -29,7 +32,7 @@ pip install llvmlite
 2. Clone the repository and navigate to the project directory.
 
 ```bash
-git clone https://github.com/SarthakB11/LLVM-Power-Consumption-Ranking-Pass.git
+git clone https://github.com/SarthakB11/power-consumption-ranking-finder.git
 cd LLVM-Power-Consumption-Ranking-Pass
 ```
 
