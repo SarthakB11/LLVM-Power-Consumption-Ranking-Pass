@@ -103,7 +103,7 @@ struct PowerConsumptionRankingPass : public PassInfoMixin<PowerConsumptionRankin
     }
 
     PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
-        errs() << "Power Consumption Ranking (New PM):\n";
+        errs() << "Power Consumption Ranking :\n";
         FunctionAnalysisManager &FAM = MAM.getResult<FunctionAnalysisManagerModuleProxy>(M).getManager();
         int id = 1;
         for (auto &F : M) {
