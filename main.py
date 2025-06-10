@@ -62,6 +62,8 @@ def main():
                 result_file_path = os.path.join("results", os.path.splitext(file)[0] + "_power_ranking.txt")
                 with open(result_file_path, 'w') as result_file:
                     result_file.write(str(mod))
+                print(f"--- Power Ranking Result for {file} ---")
+                print(str(mod))
 
 if __name__ == "__main__":
     main()
