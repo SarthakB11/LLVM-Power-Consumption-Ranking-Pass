@@ -3,12 +3,17 @@ import subprocess
 
 def compile_pass():
     """
-    Compile the LLVM pass.
+    Compile the LLVM pass if PowerRankingPass.so does not exist.
     """
+    if os.path.exists("PowerRankingPass.so"):
+        print("PowerRankingPass.so already exists. Skipping compilation.")
+        return True
+
     # Command to compile the LLVM pass
     command = "clang -fPIC -I$(llvm-config --includedir) -shared -o PowerRankingPass.so PowerRankingPass.cpp"
     try:
         # Execute the compilation command
+        print("Compiling LLVM pass...")
         subprocess.run(command, shell=True, check=True)
         print("LLVM pass compiled successfully.")
         return True
