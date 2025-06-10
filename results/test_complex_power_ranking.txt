@@ -1,0 +1,11 @@
+WARNING: You're attempting to print out a bitcode file.
+This is inadvisable as it may cause display problems. If
+you REALLY want to taste LLVM bitcode first-hand, you
+can force output with the `-f' option.
+
+Power Consumption Ranking:
+Function: 1    __pyx_pf_12test_complex_simple_function, Score: 340
+Function: 2    __pyx_pf_12test_complex_2loop_function, Score: 1121
+Function: 3    __pyx_pf_12test_complex_4conditional_function, Score: 582
+Function: 4    __pyx_pf_12test_complex_6caller_function, Score: 1136
+Function: 5    __pyx_pf_12test_complex_8main, Score: 2156
